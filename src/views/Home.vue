@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<div class="body">
+  <Navbar />
+  <ChatWindow />
+  <MessageComposer />
+</div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script setup>
+import { watch } from "vue"
+import { useRouter } from "vue-router"
+import getUser from "../composables/getUser.js"
+import Navbar from "../components/Navbar.vue"
+import ChatWindow from "../components/ChatWindow.vue"
+import MessageComposer from "../components/MessageComposer.vue"
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+const { user }  = getUser()
+const router    = useRouter()
+
+watch(user, () => {
+  if (!user.value) {
+    router.push("/signup")
   }
-}
+})
+
 </script>
+<style scoped>
+.body {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+}
+</style>
