@@ -1,8 +1,15 @@
 <template>
-  <nav v-if="user">
-    <div class="left">{{ user.displayName }}</div>
+  <nav>
+    <div class="left" v-if="!user">
+      <router-link to="/login">Fazer login</router-link>
+    </div>
+    <div class="left" v-else>
+      <span>{{ user.displayName }}</span>
+    </div>
     <div class="right">
-      <button @click="handleLogout">sair</button>
+      <button @click="handleLogout">
+        <span class="material-icons">logout</span>
+      </button>
     </div>
   </nav>
 </template>
@@ -37,6 +44,10 @@ nav {
   z-index: 100;
 }
 
+a {
+  color: rgb(0, 160, 139);
+}
+
 button {
   padding: 0.5rem 1rem;
   margin: -0.5rem 0;
@@ -44,8 +55,7 @@ button {
   background: none;
   border: none;
 
-  text-transform: uppercase;
-  text-decoration: underline;
+  text-decoration: none;
   color: rgb(0, 160, 139);
 }
 

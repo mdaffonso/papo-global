@@ -26,7 +26,7 @@ const handleSubmit = async () => {
 
   await addDoc({
     message: message.value,
-    user: user.value.displayName
+    user: user.value?.displayName
   })
   if (!error.value) {
     message.value = ""
