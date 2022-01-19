@@ -4,7 +4,7 @@
       <small>{{props.timestamp}}</small>
     </span>
     <span class="body">
-      <strong>{{formattedUser}}</strong>:
+      <strong>{{formattedUser}}:</strong>
       {{props.message}}
     </span>
   </p>
@@ -54,7 +54,7 @@ small {
 
 .body {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .right {
