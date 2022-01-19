@@ -52,9 +52,12 @@ small {
   font-size: 0.7em;
 }
 
+strong {
+  margin-right: 0.5rem;
+}
+
 .body {
   display: flex;
-  gap: 0.5rem;
 }
 
 .right {
